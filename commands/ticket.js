@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder, PermissionFlagsBits, ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +13,6 @@ module.exports = {
         .addChannelOption(option => option.setName('close').setDescription('The category where the closed tickets will be created').setRequired(true)),
 
     async execute(interaction, client) {
-        const fs = require('fs');
         const channel = interaction.options.getChannel('channel');
         const role = interaction.options.getRole('role');
         const open = interaction.options.getChannel('open');
@@ -37,7 +37,7 @@ module.exports = {
             close: close.id
         };
 
-        fs.writeFileSync(`./data/${interaction.guildId}.json`, JSON.stringify(data, null, 4));
+        fs.writeFileSync(`./database/${interaction.guildId}.json`, JSON.stringify(data, null, 4));
 
         const embed = new EmbedBuilder()
             .setTitle('🎫 Ticket System')

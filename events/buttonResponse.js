@@ -1,4 +1,5 @@
 const { EmbedBuilder, PermissionFlagsBits, ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder } = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
     name: 'interactionCreate',
@@ -11,7 +12,7 @@ module.exports = {
         const user = interaction.user;
         const guild = interaction.guild;
 
-        const date = require(`../data/${guild.id}.json`);
+        const date = JSON.parse(fs.readFileSync(`./database/${guild.id}.json`));
         const staffRole = date.role;
         const openCategory = date.open;
         const closeCategory = date.close;
