@@ -1,6 +1,11 @@
 # Ticket System Template (Discord.js v14)
 
 This is a template for a ticket system using Discord.js v14.
+If you want to use your work to increase your social media reputation, don't forget to copyright.
+
+## Copyright
+Github: devloli-main
+Discord: Devloli#8883
 
 ## Contact
 <div id="Discord-m" align="center">
